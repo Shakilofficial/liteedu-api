@@ -50,14 +50,14 @@ const handleCallback = async (
     const { status, invoice_number, trx_id } = query;
 
     if (status !== 'Successful') {
-        return `https://oditicareer.com/paystation/${type}?status=FAILED&invoice=${invoice_number}`;
+        return `https://liteedu.com/payment/${type}?status=FAILED&invoice=${invoice_number}`;
     }
 
     // Verify transaction from PayStation
     const verify = await verifyTransaction(invoice_number);
 
     if (verify.trx_status !== 'success') {
-        return `https://oditicareer.com/paystation/${type}?status=FAILED&invoice=${invoice_number}`;
+        return `https://liteedu.com/payment/${type}?status=FAILED&invoice=${invoice_number}`;
     }
 
     if (type === 'purchase') {
@@ -85,7 +85,7 @@ const handleCallback = async (
         reason: ['Payment Gateway'],
     });
 
-    return `https://oditicareer.com/paystation/${type}?status=SUCCESS&trx_id=${trx_id}`;
+    return `https://liteedu.com/payment/${type}?status=SUCCESS&trx_id=${trx_id}`;
 };
 
 
