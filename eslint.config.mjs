@@ -3,6 +3,10 @@ import globals from 'globals';
 import tseslint from 'typescript-eslint';
 import { defineConfig } from 'eslint/config';
 import eslintPluginPrettierRecommended from 'eslint-config-prettier';
+import { createRequire } from 'module';
+
+var require = createRequire(import.meta.url);
+var module = { exports: {} };
 
 export default defineConfig([
     {
